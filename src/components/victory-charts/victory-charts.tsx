@@ -1,13 +1,9 @@
 import React from 'react';
-import { VictoryBar, VictoryChart, VictoryClipContainer, VictoryScatter } from 'victory';
+import { VictoryChart, VictoryClipContainer, VictoryScatter } from 'victory';
 
-const VictoryCharts = () => {
-    const data = [
-        {quarter: 1, earnings: 13000},
-        {quarter: 2, earnings: 16500},
-        {quarter: 3, earnings: 14250},
-        {quarter: 4, earnings: 19000}
-      ];
+// Victory charts is a great library especially made for charts, with many options to display your data
+
+const VictoryCharts = ({data}: {data: any[]}) => {
 
       return(
           <div>
@@ -17,8 +13,8 @@ const VictoryCharts = () => {
       >
               <VictoryScatter
               data={data}
-              x="quarter"
-              y="earnings"
+              x="slot"
+              y="shares"
               size={10}
               animate={{
                 onEnter: {
