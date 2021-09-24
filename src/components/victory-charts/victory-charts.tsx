@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import * as V from 'victory';
+import { VictoryBar } from 'victory';
 
 const VictoryCharts = () => {
     const data = [
@@ -12,7 +11,10 @@ const VictoryCharts = () => {
 
       return(
           <div>
-
+              <VictoryBar
+              data={data}
+              x="quarter"
+              y="earnings"/>
           </div>
       )
 

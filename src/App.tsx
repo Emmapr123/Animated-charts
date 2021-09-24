@@ -1,5 +1,5 @@
 import './App.css';
-import { AnimatedBar, AnimatedLine } from './components';
+import { AnimatedBar, AnimatedLine, VictoryCharts } from './components';
 
 function App() {
   return (
@@ -11,6 +11,9 @@ function App() {
       </div>
       <div style={{width: 400, height: 400, alignContent: 'space-evenly', justifyContent: 'space-evenly', display: 'flex', flexDirection: 'column'}}> 
           <AnimatedLine />
+      </div>
+      <div style={{width: 400, height: 400, alignContent: 'space-evenly', justifyContent: 'space-evenly', display: 'flex', flexDirection: 'column'}}>
+        <VictoryCharts />
       </div>
     </div>
   );
