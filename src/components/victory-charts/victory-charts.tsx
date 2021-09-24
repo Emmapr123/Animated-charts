@@ -1,5 +1,5 @@
 import React from 'react';
-import { VictoryBar } from 'victory';
+import { VictoryBar, VictoryChart, VictoryClipContainer, VictoryScatter } from 'victory';
 
 const VictoryCharts = () => {
     const data = [
@@ -11,10 +11,28 @@ const VictoryCharts = () => {
 
       return(
           <div>
-              <VictoryBar
+               <VictoryChart  animate={{ duration: 2000, easing: "bounce" }}
+      	// domain={{ y: [0, 1] }}
+      	// animate={{ duration: 2000 }}
+      >
+              <VictoryScatter
               data={data}
               x="quarter"
-              y="earnings"/>
+              y="earnings"
+              size={10}
+              animate={{
+                onEnter: {
+                  duration: 500,
+                  before: () => ({
+                    _y: 0,
+                    fill: "orange",
+                    label: "BYE"
+                  })
+                }
+              }}
+              groupComponent={<VictoryClipContainer/>}/>
+
+              </VictoryChart>
           </div>
       )
 
