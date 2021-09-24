@@ -23,17 +23,17 @@ const AnimatedLine = ({data}: {data: any[]}) =>  {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="slot" />
+      <XAxis dataKey="day" />
       <YAxis />
       <Tooltip />
       <Legend />
       <Line
         type="monotone"
-        dataKey="shares"
+        dataKey="buy"
         stroke="#8884d8"
         activeDot={{ r: 8 }}
       />
-      {/* <Line type="monotone" dataKey="shares" stroke="#82ca9d" /> */}
+      <Line type="monotone" dataKey="sell" stroke="#82ca9d" />
     </LineChart>
   );
 }

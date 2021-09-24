@@ -18,7 +18,7 @@ function AnimatedBar({ delay, length, duration }: {delay?: number, length: numbe
       range: [0,1],
       output: ['1%', `${length}%`]
     }),
-    backgroundColor: 'blue',
+    backgroundColor: 'lightpink',
     height: 20,
   }
   return <animated.div style={props}>

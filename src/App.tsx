@@ -1,5 +1,5 @@
 import './App.css';
-import { AnimatedBar, AnimatedLine, PieChart, VictoryCharts } from './components';
+import { AnimatedBar, AnimatedLine, AnimatedPieChart, PieChart, VictoryCharts } from './components';
 
 function App() {
 
@@ -26,6 +26,31 @@ function App() {
       fill: 'lightblue'
   }]
 
+  const data3 = [
+    {day: '1', sell: 600, buy: 400},
+    {day: '2', sell: 554, buy: 500},
+    {day: '3', sell: 2227, buy: 1000},
+    {day: '4', sell: 900, buy: 3000}
+  ]
+
+  const data4 = [
+    {
+      'name': 'pending',
+      'value': 1000,
+      fill: 'lightpink'
+  },
+  { 
+      'name': 'payed',
+      'value': 1000,
+      fill: 'lightgreen'
+  },
+  {
+      'name': 'transfered',
+      'value': 200,
+      fill: 'lightblue'
+  }]
+
+
   return (
     <div className="App">
       <div style={{width: 400, height: 400, alignContent: 'space-evenly', justifyContent: 'space-evenly', display: 'flex', flexDirection: 'column'}}> 
@@ -34,13 +59,16 @@ function App() {
           <AnimatedBar length={100} delay={500} duration={1000}/>
       </div>
       <div style={{width: 400, height: 400, alignContent: 'space-evenly', justifyContent: 'space-evenly', display: 'flex', flexDirection: 'column'}}> 
-          <AnimatedLine data={data1} />
+          <AnimatedLine data={data3} />
       </div>
       <div style={{width: 400, height: 400, alignContent: 'space-evenly', justifyContent: 'space-evenly', display: 'flex', flexDirection: 'column'}}>
         <VictoryCharts data={data1} />
       </div>
       <div style={{width: 400, height: 400, alignContent: 'space-evenly', justifyContent: 'space-evenly', display: 'flex', flexDirection: 'column'}}>
         <PieChart data={data2} />
+      </div>
+      <div style={{width: 400, height: 400, alignContent: 'space-evenly', justifyContent: 'space-evenly', display: 'flex', flexDirection: 'column'}}>
+        <AnimatedPieChart data={data4}/>
       </div>
     </div>
   );

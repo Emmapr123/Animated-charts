@@ -1,4 +1,5 @@
 export * from './animated-bar'
 export * from './animated-line'
+export * from './animated-pie-chart'
 export * from './pie-chart'
 export * from './victory-charts'
