@@ -1,5 +1,5 @@
 import './App.css';
-import { AnimatedBar, AnimatedLine, VictoryCharts } from './components';
+import { AnimatedBar, AnimatedLine, PieChart, VictoryCharts } from './components';
 
 function App() {
 
@@ -13,7 +13,7 @@ function App() {
     {
       available: 5000,
       maxAmout: 1000,
-      bought: 350
+      bought: 1000
     }
 
   return (
@@ -28,6 +28,9 @@ function App() {
       </div>
       <div style={{width: 400, height: 400, alignContent: 'space-evenly', justifyContent: 'space-evenly', display: 'flex', flexDirection: 'column'}}>
         <VictoryCharts data={data1} />
+      </div>
+      <div style={{width: 400, height: 400, alignContent: 'space-evenly', justifyContent: 'space-evenly', display: 'flex', flexDirection: 'column'}}>
+        <PieChart />
       </div>
     </div>
   );
