@@ -1,27 +1,34 @@
+import { useSpring } from '@react-spring/core';
 import React from 'react'
-import { VictoryChart, VictoryClipContainer, VictoryPie, VictoryScatter } from 'victory';
+import { VictoryPie } from 'victory';
 
 
-const PieChart = () => {
-    const data2 =
-    [{
-        x: 'Available',
-        y: 5000
-    },
-    { 
-        x: 'Max buy',
-        y: 650
-    },
-    {
-        x: 'bought',
-        y: 350
-    }]
+const PieChart = ({data}: {data: any[]}) => {
+    const { x } = useSpring({
+        from: { x: 0 },
+        x: 1,
+        config: { duration: 1000 },
+      })
 
     return(
-        <div>
+        <div>   
             <VictoryPie
-            colorScale={['lightpink', 'lightblue', 'lightyellow']}
-            data={data2}/>
+            animate={{  onLoad: {
+                duration: 1000,
+                after: (datum) => datum.y
+                // before?: (datum: any) => AnimationStyle;
+                // after?: (datum: any) => AnimationStyle;
+                // AnimationStyle = { [key: string]: string | number };
+              }
+            }}
+            innerRadius={20}
+            labelRadius={100}
+            style={{ data: {
+                fill: ({ datum }) => datum.fill,
+                opacity: ({ datum }) => datum.opacity
+              } }}
+            radius={({ datum }) => 20 + datum.y / 20}
+            data={data}/>
         </div>
     )
 }

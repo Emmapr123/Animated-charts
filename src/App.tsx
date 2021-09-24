@@ -10,11 +10,21 @@ function App() {
   ];
 
   const data2 =
-    {
-      available: 5000,
-      maxAmout: 1000,
-      bought: 1000
-    }
+  [{
+      x: 'Available',
+      y: 2000,
+      fill: 'lightpink'
+  },
+  { 
+      x: 'Max. buy',
+      y: 650,
+      fill: 'lightgreen'
+  },
+  {
+      x: 'bought',
+      y: 350,
+      fill: 'lightblue'
+  }]
 
   return (
     <div className="App">
@@ -30,7 +40,7 @@ function App() {
         <VictoryCharts data={data1} />
       </div>
       <div style={{width: 400, height: 400, alignContent: 'space-evenly', justifyContent: 'space-evenly', display: 'flex', flexDirection: 'column'}}>
-        <PieChart />
+        <PieChart data={data2} />
       </div>
     </div>
   );

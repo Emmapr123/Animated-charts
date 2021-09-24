@@ -7,7 +7,7 @@ const VictoryCharts = ({data}: {data: any[]}) => {
 
       return(
           <div>
-               <VictoryChart  animate={{ duration: 2000, easing: "bounce" }}
+               <VictoryChart  
       	// domain={{ y: [0, 1] }}
       	// animate={{ duration: 2000 }}
       >
@@ -17,17 +17,18 @@ const VictoryCharts = ({data}: {data: any[]}) => {
               y="shares"
               size={10}
               animate={{
+                // animationWhitelist: ["style", "data", "size"], // Try removing "size"
+                onExit: {
+                  duration: 500,
+                  before: () => ({ opacity: 0.3, _y: 0 })
+                },
                 onEnter: {
                   duration: 500,
-                  before: () => ({
-                    _y: 0,
-                    fill: "orange",
-                    label: "BYE"
-                  })
+                  before: () => ({ opacity: 0.3, _y: 0 }),
+                  after: (datum) => ({ opacity: 1, _y: datum._y })
                 }
-              }}
+              }}   
               groupComponent={<VictoryClipContainer/>}/>
-
               </VictoryChart>
           </div>
       )
